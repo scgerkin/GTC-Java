@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Auto Parts Store :: Order Checkout</title>
+    </h:head>
+    <h:body>
+        <h1>Order Checkout</h1>
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5" cellspacing="0">
+                <h:outputLabel><p>Subtotal:</p></h:outputLabel>
+                <h:outputLabel><p>#{resupplyOrderBean.subtotalCurrency}</p></h:outputLabel>
+                <h:outputLabel><p>Tax Amount:</p></h:outputLabel>
+                <h:outputLabel><p>#{resupplyOrderBean.taxAmountCurrency}</p></h:outputLabel>
+                <h:outputLabel><p>Shipping Fee:</p></h:outputLabel>
+                <h:outputLabel><p>#{resupplyOrderBean.shippingFeeCurrency}</p></h:outputLabel>
+                <h:outputLabel><p>Total:</p></h:outputLabel>
+                <h:outputLabel><p>#{resupplyOrderBean.orderTotalCurrency}</p></h:outputLabel>
+            </h:panelGrid>
+            <h:panelGrid columns="1" cellpadding="1" cellspacing="0">
+                <h:outputLabel><p>ORDER NOTES:</p><p>#{resupplyOrderBean.orderNotes}</p></h:outputLabel>
+            </h:panelGrid>
+            <h:panelGrid columns="2" cellpadding="4" cellspacing="0">
+                <h:commandButton value="Cancel Order" action="#{resupplyOrderBean.cancelOrder()}"></h:commandButton>
+                <h:commandButton value="Place Order" action="#{resupplyOrderBean.placeOrder()}"></h:commandButton>
+            </h:panelGrid>
+            <h:outputLabel style="color:red"><p>#{resupplyOrderBean.errorMsg}</p></h:outputLabel>
+        </h:form>
+    </h:body>
+</html>
+

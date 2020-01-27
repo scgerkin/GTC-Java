@@ -1,0 +1,40 @@
+.universal {
+    -fx-background-color: #474747;
+    -fx-text-fill: #222222;
+}
+
+.logoPane {
+    -fx-font-family: "Russo One", serif;
+    -fx-font-size: 39;
+    -fx-background-color: #474747;
+    -fx-text-alignment: center;
+    -fx-fill: #222222;
+    -fx-padding: 15;
+}
+
+.filterPane, .listPane, .dynamicDisplay {
+    -fx-background-color: #474747;
+    -fx-font-size: 14;
+    -fx-text-fill: #878787;
+    -fx-fill: #878787;
+    -fx-padding: 10;
+}
+
+.listPane {
+    -fx-padding: 0;
+}
+
+.listItem {
+    -fx-background-color: #222222;
+    -fx-font-weight: 700;
+    -fx-text-fill: #878787;
+    -fx-fill: #878787;
+    -fx-font-size: 18;
+    -fx-padding: 10;
+}
+
+.label, .check-box, .radio-button, .combo-box .list-view .list-cell {
+    -fx-text-fill: #878787;
+    -fx-fill: #878787;
+    -fx-background-color: #474747;
+}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Auto Parts Store :: Vendors</title>
+    </h:head>
+    <h:body>
+        <h1>Select a Vendor to Begin Order</h1>
+        <h:form>
+            <h:selectOneMenu value="#{resupplyOrderBean.selectedVendor}">
+                <f:selectItems value="#{resupplyOrderBean.vendorNames}" var="vendor" itemLabel="#{resupplyOrderBean.getVendorName(vendor)}" itemValue="#{resupplyOrderBean.getVendorName(vendor)}" />
+            </h:selectOneMenu>
+            <br /><br />
+            <h:panelGrid columns="2" cellpadding="4" cellspacing="0">
+                <h:commandButton value="Return to Main Menu" action="#{resupplyOrderBean.backToMain()}"></h:commandButton>
+                <h:commandButton value="Continue to Order Form" action="#{resupplyOrderBean.loadParts()}"></h:commandButton>
+                <h:outputLabel style="color:red"><p>#{resupplyOrderBean.errorMsg}</p></h:outputLabel>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Calculator</title>
+  <!--For adding bootstrap styling-->
+  <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+  <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Loan Calculator</h1>
+  <!--
+  Here, Thymeleaf requests "formCommand" from the Model. It then populates information
+  for each input field based on the field name received from the object "formCommand".
+  It will then put the input from the form back into that form command when the submitted
+  and give the object back to the Model.
+  -->
+  <form action="#" th:action="@{/}" th:object="${formCommand}" method="post" class="form">
+    <div class="form-group">
+      Enter a loan amount: <input type="number" min="500" step="0.01" th:field="*{amt}"
+                                  required="required"/><br/>
+      Enter number of years: <input type="number" min="1" step="1" max="100" th:field="*{yrs}"
+                                    required="required"/><br/>
+      Enter an interest rate (percentage): <input type="number" min="0.01" max="99.99" step="0.01"
+                                                  th:field="*{interestRate}" required="required"/><br/>
+      <!--
+      I'm really not 100% sure about the intricacies of how this work but essentially
+      it loops through the list received when calling the ModelAttribute "radioSelection"
+      from the controller and puts each list item onto the View.
+      This article gives examples of how to do this with various form controls:
+      https://medium.com/@grokwich/spring-boot-thymeleaf-html-form-handling-762ef0d51327
+      -->
+      <div class="custom-control custom-radio" th:each="val : ${radioSelection}">
+        <input type="radio" th:field="*{paymentType}" th:value="${val}" class="custom-control-input"/>
+        <label th:for="${#ids.prev('paymentType')}" th:text="${val}"></label>
+      </div>
+    </div>
+    <input type="submit" class="btn btn btn-outline-primary" value="Submit"/>
+    <input type="reset" class="btn btn btn-outline-primary" value="Reset"/>
+    <!--If we have a result, Thymeleaf will put this on the View-->
+    <div class="content" th:if="*{result}">
+      Amount: <span th:text="*{result}"></span>
+    </div>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Auto Parts Store :: Resupply Order</title>
+    </h:head>
+    <h:body>
+        <h1>Order Parts for Inventory</h1>
+        <h:form>
+            <h:dataTable border="1" value="#{resupplyOrderBean.partsSelectedByVendor}" var="part" rowClasses="oddTableRow,evenTableRow" headerClass="tableHeader"
+                         styleClass="table" cellpadding="5" cellspacing="0">
+                <h:column>
+                        <f:facet name="header">Category</f:facet>
+                        <p>#{resupplyOrderBean.getCategory(part)}</p>
+                </h:column>
+                <h:column>
+                        <f:facet name="header">Part ID</f:facet>
+                                #{resupplyOrderBean.getPartID(part)}
+                </h:column>
+                <h:column>
+                        <f:facet name="header">Part</f:facet>
+                                #{resupplyOrderBean.getName(part)}
+                </h:column>
+                <h:column>
+                        <f:facet name="header">Description</f:facet>
+                                #{resupplyOrderBean.getDescription(part)}
+                </h:column> 
+                <h:column>
+                        <f:facet name="header">Vendor</f:facet>
+                                #{resupplyOrderBean.getCompanyName(part)}
+                </h:column>  
+                <h:column>
+                        <f:facet name="header">Unit Price</f:facet>
+                                #{resupplyOrderBean.getPricePerUnit(part)}
+                </h:column>
+                <h:column>
+                        <f:facet name="header">Quantity In Stock</f:facet>
+                                #{resupplyOrderBean.getQuantityOnHand(part)}
+                </h:column>
+                <h:column>
+                        <f:facet name="header">Quantity In Cart</f:facet>
+                        #{resupplyOrderBean.getQuantityInCart(part)}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h:commandButton value="Add to Cart" action="#{resupplyOrderBean.addItemToCart(part)}">
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid columns="1" cellpadding="0" cellspacing="0">
+                <h:outputLabel><p>Order Notes:</p></h:outputLabel>
+                <h:inputTextarea value="#{resupplyOrderBean.orderNotes}" cols="30" rows="10"></h:inputTextarea>
+                <h:outputLabel><p>Employee Email Address:</p></h:outputLabel>
+                <h:inputText value="#{resupplyOrderBean.orderEmployeeEmail}" maxlength="50" size="39" autocomplete="off"></h:inputText>
+                <br></br><br></br>
+                <h:panelGrid columns="2" cellpadding="4" cellspacing="0">
+                    <h:commandButton value="Empty Cart" action="#{resupplyOrderBean.resetCart()}"></h:commandButton>
+                    <h:commandButton value="Proceed to Checkout" action="#{resupplyOrderBean.processCart()}"></h:commandButton>
+                </h:panelGrid>
+                <h:outputLabel style="color:red"><p>#{resupplyOrderBean.errorMsg}</p></h:outputLabel>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

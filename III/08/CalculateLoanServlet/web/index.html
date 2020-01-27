@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calculate Loan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h3>Compute Loan Payment</h3>
+        <form action="CalculateLoan" method="post">
+            <label>Loan Amount:</label><input type="number" name="loanAmount"/><br/>
+            <label>Annual Interest Rate:</label><input type="number" name="interestRate"/><br/>
+            <label>Number of Years:</label><input type="number" name="numYears"/><br/>
+            <input type="submit" value="Calculate Loan Payment"/>
+            <input type="reset" value="Reset"/>
+        </form>
+    </body>
+</html>

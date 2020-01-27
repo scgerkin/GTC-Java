@@ -1,0 +1,88 @@
+{
+    "categories": [
+        {
+            "name": "Decks",
+            "items": [
+                {
+                    "name": "The Master Trasher",
+                    "price": 60.00
+                },
+                {
+                    "name": "The Dictator",
+                    "price": 45.00
+                },
+                {
+                    "name": "The Street King",
+                    "price": 50.00
+                }
+            ],
+            "multipleAllowed": false,
+            "cost": 0.00
+        },
+        {
+            "name": "Truck Assemblies",
+            "items": [
+                {
+                    "name": "7.75\" axle",
+                    "price": 35.00
+                },
+                {
+                    "name": "8\" axle",
+                    "price": 40.00
+                },
+                {
+                    "name": "8.5\" axle",
+                    "price": 45.00
+                }
+            ],
+            "multipleAllowed": false,
+            "cost": 0.00
+        },
+        {
+            "name": "Wheels",
+            "items": [
+                {
+                    "name": "51mm",
+                    "price": 20.00
+                },
+                {
+                    "name": "55mm",
+                    "price": 22.00
+                },
+                {
+                    "name": "58mm",
+                    "price": 22.00
+                },
+                {
+                    "name": "61mm",
+                    "price": 28.00
+                }
+            ],
+            "multipleAllowed": false,
+            "cost": 0.00
+        },
+        {
+            "name": "Miscellaneous Products",
+            "items": [
+                {
+                    "name": "Grip Tape",
+                    "price": 10.00
+                },
+                {
+                    "name": "Bearings",
+                    "price": 30.00
+                },
+                {
+                    "name": "Riser Pads",
+                    "price": 2.00
+                },
+                {
+                    "name": "Nuts & Bolts Kit",
+                    "price": 3.00
+                }
+            ],
+            "multipleAllowed": true,
+            "cost": 0.00
+        }
+    ]
+}
